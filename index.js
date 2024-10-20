@@ -91,6 +91,19 @@ app.get('/photo/:idno', async (req, res) => {
     }
 });
 
+app.get('/info/:idno',async(req,res)=>{
+  const { idno } = req.params;
+
+  // Find the document based on idno
+  if(idno != null){
+    const photoDocument = await Photo.findOne({ idno });
+    return res.json(photoDocument)
+  }
+  else{
+    return res.json("No User Found")
+  }
+})
+
 app.post('/save',async(req,res)=>{
     const {idno ,name,photo}= req.body;
     const response = await Photo.create({

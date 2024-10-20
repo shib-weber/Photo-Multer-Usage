@@ -29,4 +29,19 @@ document.querySelector('#srch').addEventListener('click', async (e) => {
         errorMessage.textContent = 'Photo not found';
         errorMessage.style.display = 'block';
     }
+    const response2 = await fetch(`/info/${idno}`, {
+        method: "GET"
+    });
+
+    const result = await response2.json()
+    console.log(result)
+    const p =document.createElement('p')
+    p.className='info'
+    photoContainer.appendChild(p)
+    if(result === 'No User Found'){
+        
+        p.innerHTML=result
+    }else{
+        p.innerHTML=result.name
+    }
 });
