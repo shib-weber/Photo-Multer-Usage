@@ -5,3 +5,7 @@ const PhotoSchema = mongoose.Schema({
     name : {type:String, required:true},
     photo :{type:String,}
 })
+
+const Photo = mongoose.model('Photo', PhotoSchema);
+
+module.exports = Photo;
