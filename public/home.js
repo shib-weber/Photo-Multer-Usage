@@ -25,7 +25,9 @@ document.querySelector("#p-form").addEventListener('submit', async (e) => {
 
     const response2 = await fetch('/save',{
         method:"POST",
-        headers:{},
+        headers: {
+            "Content-Type": "application/json"  // Set JSON content type for this request
+        },
         body:JSON.stringify({idno,name, photo:fille})
     })
 

@@ -35,6 +35,10 @@ const storage = multer.memoryStorage();  // Use memoryStorage since we'll write 
 const upload = multer({ storage });
 
 app.get('/', (req, res) => {
+  res.render('main');
+});
+
+app.get('/int', (req, res) => {
   res.render('home');
 });
 
